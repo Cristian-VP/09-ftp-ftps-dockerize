@@ -1,0 +1,2 @@
+FROM fauria/vsftpd
+EXPOSE 20 21 4500-6000

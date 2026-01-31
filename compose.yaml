@@ -1,0 +1,15 @@
+services:
+  vsftpd:
+    build: .
+    network_mode: host
+    volumes:
+      - ./ftp-data:/home/vsftpd
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - FTP_USER=daw_user
+      - FTP_PASS=password
+      - PASV_MIN_PORT=21000
+      - PASV_MAX_PORT=21100
+      - PASV_ADDRESS=127.0.0.1
+    restart: unless-stopped
